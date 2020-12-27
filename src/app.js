@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
 const cors = require("./middleware/cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -34,6 +35,6 @@ app.use((error, req, res, next) => {
 sequelize
   .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(process.env.PORT);
   })
   .catch((err) => {});

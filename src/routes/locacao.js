@@ -9,4 +9,6 @@ router.post("/aloca", isAuth, locacaoController.aluga);
 
 router.get("/alocados", isAuth, locacaoController.alugados);
 
+router.post("/devolucao", isAuth, locacaoController.devolucao);
+
 module.exports = router;

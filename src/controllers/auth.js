@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator/check");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const Usuarios = require("../models/usuarios");
 
@@ -61,7 +62,7 @@ exports.postLogin = (req, res, next) => {
           email: loadedUser.usr_email,
           userId: loadedUser.usr_id.toString(),
         },
-        "ChaveSegredoJsonWebToken",
+        process.env.JWT_TOKEN,
         { expiresIn: "1h" }
       );
 

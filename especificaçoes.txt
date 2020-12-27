@@ -1,0 +1,132 @@
+API locadora de filmes.
+  A API locadora de filmes é uma API REST baseada em JSON sobre HTTP.
+  Instale o package.json para instalar as dependências do software.
+
+  ========================================
+  CADASTRO DE USUÁRIO
+    Cadastra o usuário no banco de dados.
+    POST
+      http://localhost:3000/signUp
+
+      Parametros de entrada:
+        email: String
+
+        nome: String
+
+        senha: String
+
+      Saída:
+        "message": "Usuario Cadastrado com sucesso!"
+
+  ========================================
+  LOGIN DE USUÁRIO
+    Conecta o usuário às rotas de usuário.
+    POST
+      http://localhost:3000/login
+
+      Parametros de entrada:
+
+        email: String
+
+        senha: String
+
+      Saída:
+        token: String
+
+        userId: String
+
+  ========================================
+  LOCAÇÃO DE UM FILME
+    Cria uma locação de filme para o usuário logado.
+    POST
+      http://localhost:3000/locacao/aloca
+
+      Parametros de entrada:
+
+        idFilme: String
+
+      Saída:
+        "message": "Filme Locado com sucesso"
+
+  ========================================
+  DEVOLUÇÃO DE UM FILME
+    Cria uma devolução de filme para o usuário logado.
+    POST
+      http://localhost:3000/locacao/devolucao
+
+      Parametros de entrada:
+        idFilme: String
+
+
+      Saída:
+        "message": "Filme devolvido com sucesso"
+
+  ========================================
+  FILMES LOCADOS
+    Mostra os filmes locados de um usuário cadastrado.
+    GET
+      http://localhost:3000/locacao/alocados
+
+      Saída:
+      {
+        "idUsuario": String,
+        "locacao": [
+          {
+            "loc_id": Int,
+            "filmeFId": Int,
+            "f_titulo": String,
+            "qtd_filmes": Int
+          },
+        ]
+      }
+
+  ========================================
+  FILMES
+    Mostra todos os filmes do sistema. 
+    GET
+      http://localhost:3000/filmes
+
+      Saída:
+        [
+          {
+            "f_id": Int,
+            "f_titulo": String,
+            "f_diretor": String,
+            "f_quantidade": Int
+          },
+        ]
+
+  ========================================
+  FILMES DISPONIVEIS
+    Mostra todos os filmes que estão disponíveis para locação.
+    GET
+      http://localhost:3000/filmes/disponivel
+
+      Saída:
+        [
+          {
+            "f_id": Int,
+            "f_titulo": String,
+            "f_diretor": String,
+            "f_quantidade": Int
+          },
+        ]
+
+  ========================================
+  BUSCA FILMES
+    Busca um filme nos sistema de acordo com a busca pelo Título.
+    GET
+      http://localhost:3000/filmes/:nomeFilme
+
+      Parametros de entrada:
+        :nomeFilme
+
+      Saída:
+        [
+          {
+            "f_id": Int,
+            "f_titulo": String,
+            "f_diretor": String,
+            "f_quantidade": Int
+          },
+        ]
