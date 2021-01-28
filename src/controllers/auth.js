@@ -15,6 +15,12 @@ exports.postSignUp = (req, res, next) => {
   const nome = req.body.nome;
   const senha = req.body.senha;
 
+  let emailExistente = Usuarios.findOne({where: {usr_email: email}});
+
+  if (emailExistente) {
+    res.status(400).json({message: "O e-mail cadastrado ja existe!"});
+  }
+
   bcrypt
     .hash(senha, 12)
     .then((criptoSenha) => {
