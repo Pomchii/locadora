@@ -1,8 +1,8 @@
 node_modules/
 
-/.env
+..env
 
-/Modelagem_locadora.png
-/Locadora-modelagem.mwb
-/especificaçoes.txt
-/gitignore
+.Modelagem_locadora
+.Locadora-modelagem
+.especificaçoes
+.gitignore
